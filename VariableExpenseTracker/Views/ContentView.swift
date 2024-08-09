@@ -5,9 +5,10 @@
 //  Created by KBrewer on 7/12/23.
 //
 // TODO: I want to add totals to the section title, so it displays the total of each section
-// TODO: App Icon
-// TODO: Make it Pretty
-
+// TODO: Can we use the new SwiftData for this?
+// TODO: Improve Look/more fun interface
+// TODO: Have a total Budget amount
+// TODO: Splash Screen
 
 import SwiftUI
 
