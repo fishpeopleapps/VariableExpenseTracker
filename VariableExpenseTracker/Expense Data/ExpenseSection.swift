@@ -22,7 +22,7 @@ struct ExpenseSection: View {
                             .style(for: item)
                         Text(item.category)
                     }
-
+                    
                     Spacer()
                     Text(item.amount, format: .localCurrency)
                 }

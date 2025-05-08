@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-class Expenses: ObservableObject {
-    @Published var items = [ExpenseItem]() {
+@Observable
+class Expenses {
+    var items = [ExpenseItem]() {
         // OOOOH we're doing this since we can't use @AppStorage on the published property!!!
         didSet {
             if let encoded = try? JSONEncoder().encode(items) {
@@ -71,4 +72,12 @@ class Expenses: ObservableObject {
     func removeCarExpenses(at offsets: IndexSet) {
         removeItems(at: offsets, in: carExpenses)
     }
+    
+    func totalSpent(in category: String) -> Double {
+        items
+            .filter { $0.category == category }
+            .map { $0.amount }
+            .reduce(0, +)
+    }
+    
 }

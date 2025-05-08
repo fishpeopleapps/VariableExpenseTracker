@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddView: View {
     // we aren't creating it, we're saying it exists
-    @ObservedObject var expenses: Expenses
+    var expenses: Expenses
     @Environment(\.dismiss) var dismiss
     /// Variables we are temporarily storing the user entered data into, then placing it into a new ExpenseItem on save
     @State private var name = ""
@@ -41,5 +41,4 @@ struct AddView: View {
             }
         }
     }
-    
 }

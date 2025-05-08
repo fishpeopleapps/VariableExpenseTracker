@@ -4,8 +4,6 @@
 //
 //  Created by KBrewer on 7/12/23.
 //
-// TODO: I want to add totals to the section title, so it displays the total of each section
-// TODO: Can we use the new SwiftData for this?
 // TODO: Improve Look/more fun interface
 // TODO: Have a total Budget amount
 // TODO: Splash Screen
@@ -13,8 +11,9 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var expenses = Expenses()
+    @State private var expenses = Expenses()
     @State private var showingAddExpense = false
+    var categories = Expenses().categories
     /// Displays the current month (not abbreviated)
     let month = Text(Date.now, format: .dateTime.month(.wide))
 
@@ -22,12 +21,12 @@ struct ContentView: View {
         NavigationView {
             List {
                 ExpenseSection(
-                    title: "Food",
+                    title: "Food..Total Spent: \(expenses.totalSpent(in: categories[0]))",
                     expenses: expenses.foodExpenses,
                     deleteItems: expenses.removeFoodExpenses
                 )
                 ExpenseSection(
-                    title: "Fun",
+                    title: "Fun..Total Spent: \(expenses.totalSpent(in: categories[1]))",
                     expenses: expenses.funExpenses,
                     deleteItems: expenses.removeFunExpenses
                 )
